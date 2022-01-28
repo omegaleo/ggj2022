@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 public class MessageQueue : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class MessageQueue : MonoBehaviour
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private Button choice1;
     [SerializeField] private Button choice2;
-    
+    private Image panel;
     private bool optionsSet = false;
     
     private void Awake()
@@ -36,12 +37,15 @@ public class MessageQueue : MonoBehaviour
     {
         showPosition = transform.localPosition;
         hidePosition = new Vector3(showPosition.x, showPosition.y - 600, showPosition.z);
+        panel = GetComponent<Image>();
     }
 
     private void Update()
     {
         if (messages.Count > 0 || options.Count > 0)
         {
+            Color color = GameController.instance.GetColor();
+            panel.color = color;
             transform.localPosition = Vector3.Lerp(transform.localPosition, showPosition, 0.125f);
             if (text.text != messages[0])
             {
@@ -51,7 +55,7 @@ public class MessageQueue : MonoBehaviour
             if (options.Count > 0 && !optionsSet)
             {
                 optionsPanel.SetActive(true);
-                
+                optionsPanel.GetComponent<Image>().color = color;
                 choice1.onClick.AddListener(() =>
                 {
                     options[0].action.Invoke();
@@ -59,6 +63,7 @@ public class MessageQueue : MonoBehaviour
                     NextMessage();
                 });
 
+                choice1.GetComponent<Image>().color = color;
                 choice1.transform.GetChild(0).GetComponent<TMP_Text>().text = options[0].text;
                 
                 choice2.onClick.AddListener(() =>
@@ -68,6 +73,7 @@ public class MessageQueue : MonoBehaviour
                     NextMessage();
                 });
 
+                choice2.GetComponent<Image>().color = color;
                 choice2.transform.GetChild(0).GetComponent<TMP_Text>().text = options[1].text;
                 
                 optionsSet = true;

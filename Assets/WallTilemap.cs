@@ -20,8 +20,8 @@ public class WallTilemap : MonoBehaviour
         instance = this;
     }
 
-    public void SetColor(Color color)
+    private void Update()
     {
-        tilemap.color = color;
+        tilemap.color = GameController.instance.GetColor();
     }
 }
