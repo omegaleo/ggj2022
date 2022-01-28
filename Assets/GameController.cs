@@ -7,6 +7,27 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
+    [Header("First level")] 
+    public int moneyBags;
+
+    public bool firstLevelGood;
+
+    public bool firstLevelBad
+    {
+        get
+        {
+            return moneyBags > 0 && !firstLevelGood && !firstLevelNeutral;
+        }
+    }
+
+    public bool firstLevelNeutral
+    {
+        get
+        {
+            return moneyBags == 0 && !firstLevelGood && !firstLevelBad;
+        }
+    }
+    
     private void Awake()
     {
         if (instance == null)
