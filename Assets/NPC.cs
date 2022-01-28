@@ -36,6 +36,8 @@ public class NPC : MonoBehaviour
         {
             if (isMoneyNPC)
             {
+                if (GameController.instance.firstLevelGood || GameController.instance.firstLevelNeutral) Destroy(this.gameObject);
+                
                 if (GameController.instance.moneyBags == 0)
                 {
                     MessageQueue.instance.messages.Add("Oh dear, it seems I've misplaced my money bags, hey you there, can you be a gentleman and find them for me?");
@@ -49,6 +51,7 @@ public class NPC : MonoBehaviour
                     { 
                         GameController.instance.moneyBags = 0;
                         GameController.instance.firstLevelGood = true;
+                        GameController.instance.firstLevelBad = false;
                         MessageQueue.instance.messages.Add("Thank you! I owe you one for this!");
                     };
 
@@ -67,6 +70,8 @@ public class NPC : MonoBehaviour
             }
             if (isFakeMoneyNPC)
             {
+                if (GameController.instance.firstLevelGood || GameController.instance.firstLevelNeutral) Destroy(this.gameObject);
+                
                 if (GameController.instance.moneyBags == 0)
                 {
                     MessageQueue.instance.messages.Add("Hey there, it appears that there are money bags around here, mind collecting them for me? I'll split the cash 50/50");
@@ -79,6 +84,8 @@ public class NPC : MonoBehaviour
                     yes.action += () => 
                     { 
                         GameController.instance.moneyBags = 0;
+                        GameController.instance.firstLevelBad = false;
+                        GameController.instance.firstLevelNeutral = true;
                         MessageQueue.instance.messages.Add("Awesome, now beat it chump, thanks for the free money!");
                     };
 

@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
 
     public bool firstLevelBad;
     
+    public bool firstLevelNeutral;
+    
     [Header("Second level")]
     public bool secondLevelGood;
 
@@ -25,14 +27,6 @@ public class GameController : MonoBehaviour
 
     public bool thirdLevelBad;
 
-    public bool firstLevelNeutral
-    {
-        get
-        {
-            return moneyBags == 0 && !firstLevelGood && !firstLevelBad;
-        }
-    }
-    
     private void Awake()
     {
         if (instance == null)
