@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
         int badPoints = 0;
 
         if (firstLevelGood) goodPoints++;
-        if (firstLevelBad) badPoints++;
+        if (firstLevelBad || firstLevelNeutral) badPoints++; //Since you gave the bags to the fake
         if (secondLevelBad) badPoints++;
         if (secondLevelGood) goodPoints++;
         if (thirdLevelBad) badPoints++;
