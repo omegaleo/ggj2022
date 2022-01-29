@@ -32,11 +32,13 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ((isMoneyNPC || isFakeMoneyNPC) && (GameController.instance.firstLevelGood || GameController.instance.firstLevelNeutral)) Destroy(this.gameObject);
+        
         if (isPlayerColliding && !messageSent)
         {
             if (isMoneyNPC)
             {
-                if (GameController.instance.firstLevelGood || GameController.instance.firstLevelNeutral) Destroy(this.gameObject);
+                
                 
                 if (GameController.instance.moneyBags == 0)
                 {
@@ -70,8 +72,6 @@ public class NPC : MonoBehaviour
             }
             if (isFakeMoneyNPC)
             {
-                if (GameController.instance.firstLevelGood || GameController.instance.firstLevelNeutral) Destroy(this.gameObject);
-                
                 if (GameController.instance.moneyBags == 0)
                 {
                     MessageQueue.instance.messages.Add("Hey there, it appears that there are money bags around here, mind collecting them for me? I'll split the cash 50/50");

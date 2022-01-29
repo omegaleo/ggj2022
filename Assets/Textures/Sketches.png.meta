@@ -2416,7 +2416,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2424,6 +2424,48 @@ TextureImporter:
       bones: []
       spriteID: 19bdeb9b47ff870459ea6c808b62b2e5
       internalID: -2028804040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sketches_109
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a88eda75f8ebb344838fdbb4c1aa8ff
+      internalID: -434595749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sketches_110
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0ae6679199d9c4b83d375f1e7d581b
+      internalID: -1680661833
       vertices: []
       indices: 
       edges: []
@@ -2492,6 +2534,7 @@ TextureImporter:
       Sketches_54: 2088207993
       Sketches_8: -1678134091
       Sketches_37: -577968628
+      Sketches_109: -434595749
       Sketches_98: -1962663096
       Sketches_40: 1419165976
       Sketches_74: -35891868
@@ -2541,6 +2584,7 @@ TextureImporter:
       Sketches_33: -881627031
       Sketches_51: -626269758
       Sketches_107: -189804969
+      Sketches_110: -1680661833
       Sketches_2: -920140341
       Sketches_81: -1566470258
       Sketches_19: -1630990991

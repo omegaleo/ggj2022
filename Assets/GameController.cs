@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
 
     public bool secondLevelBad;
     
+    public bool secondLevelNeutral;
+    
     [Header("Third level")]
     public bool thirdLevelGood;
 
