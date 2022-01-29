@@ -42,6 +42,7 @@ public class Lever : MonoBehaviour
             MessageOption yes = new MessageOption("Yes");
             yes.action += () => 
             { 
+                SFX.instance.Play(SFXTypes.Lever);
                 Open();
             };
 

@@ -47,9 +47,13 @@ public class MessageQueue : MonoBehaviour
             Color color = GameController.instance.GetColor();
             panel.color = color;
             transform.localPosition = Vector3.Lerp(transform.localPosition, showPosition, 0.125f);
-            if (text.text != messages[0])
+
+            if (messages.Count > 0)
             {
-                text.text = messages[0];
+                if (text.text != messages[0])
+                {
+                    text.text = messages[0];
+                }
             }
 
             if (options.Count > 0 && !optionsSet)

@@ -31,28 +31,33 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        instance = this;
     }
 
-    public Color GetColor()
+    public int GetGoodPoints()
     {
         int goodPoints = 0;
-        int badPoints = 0;
-
         if (firstLevelGood) goodPoints++;
-        if (firstLevelBad || firstLevelNeutral) badPoints++; //Since you gave the bags to the fake
-        if (secondLevelBad) badPoints++;
         if (secondLevelGood) goodPoints++;
-        if (thirdLevelBad) badPoints++;
         if (thirdLevelGood) goodPoints++;
+
+        return goodPoints;
+    }
+
+    public int GetBadPoints()
+    {
+        int badPoints = 0;
+        if (firstLevelBad) badPoints++;
+        if (secondLevelBad) badPoints++;
+        if (thirdLevelBad) badPoints++;
+
+        return badPoints;
+    }
+    
+    public Color GetColor()
+    {
+        int goodPoints = GetGoodPoints();
+        int badPoints = GetBadPoints();
 
         if (goodPoints > badPoints)
         {

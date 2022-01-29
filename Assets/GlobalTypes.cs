@@ -1,4 +1,6 @@
-﻿using UnityEngine.Events;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace DefaultNamespace
 {
@@ -11,5 +13,29 @@ namespace DefaultNamespace
         {
             this.text = text;
         }
+    }
+
+    public class AudioManager : MonoBehaviour
+    {
+        public AudioSource source;
+
+        private void Start()
+        {
+            source = GetComponent<AudioSource>();
+        }
+    }
+
+    public enum SFXTypes
+    {
+        TitleScreen,
+        Lever,
+        Money
+    }
+
+    [System.Serializable]
+    public class SFXAssociation
+    {
+        public SFXTypes type;
+        public AudioClip clip;
     }
 }
