@@ -32,7 +32,7 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((isMoneyNPC || isFakeMoneyNPC) && (GameController.instance.firstLevelGood || GameController.instance.firstLevelNeutral)) Destroy(this.gameObject);
+        if ((isMoneyNPC || isFakeMoneyNPC) && (GameController.instance.firstLevelGood || GameController.instance.firstLevelBad)) Destroy(this.gameObject);
         
         if (isPlayerColliding && !messageSent)
         {
@@ -53,6 +53,7 @@ public class NPC : MonoBehaviour
                     { 
                         GameController.instance.moneyBags = 0;
                         GameController.instance.firstLevelGood = true;
+                        GameController.instance.firstLevelNeutral = false;
                         GameController.instance.firstLevelBad = false;
                         MessageQueue.instance.messages.Add("Thank you! I owe you one for this!");
                     };
@@ -84,8 +85,8 @@ public class NPC : MonoBehaviour
                     yes.action += () => 
                     { 
                         GameController.instance.moneyBags = 0;
-                        GameController.instance.firstLevelBad = false;
-                        GameController.instance.firstLevelNeutral = true;
+                        GameController.instance.firstLevelBad = true;
+                        GameController.instance.firstLevelNeutral = false;
                         MessageQueue.instance.messages.Add("Awesome, now beat it chump, thanks for the free money!");
                     };
 

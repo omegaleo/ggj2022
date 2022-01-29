@@ -11,8 +11,13 @@ public class Validator : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            //Player didn't help
+            GameController.instance.firstLevelNeutral = GameController.instance.moneyBags == 0 && !(GameController.instance.firstLevelBad || GameController.instance.firstLevelGood);
+            
+            //Player stole the money
             GameController.instance.firstLevelBad = GameController.instance.moneyBags > 0;
-
+            
+            
             if (!checkedLevel2Flag) checkedLevel2Flag = true; // Check so that it doesn't instantly change to bad as soon as the player goes into the 2nd floor
             else if(!GameController.instance.secondLevelGood && !GameController.instance.secondLevelNeutral) GameController.instance.secondLevelBad = true; //Set to bad if player fled without helping
         }
